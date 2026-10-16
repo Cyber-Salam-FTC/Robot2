@@ -10,8 +10,8 @@ public class Servos extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        servoRot = hardwareMap.get(CRServo.class, "Servo_Rotation");
-        servoRot2 = hardwareMap.get(CRServo.class, "Servo_Rotation_2");
+        servoRot = hardwareMap.get(CRServo.class, "leftServo");
+        servoRot2 = hardwareMap.get(CRServo.class, "rightServo");
         waitForStart();
         while (opModeIsActive()) {
             if (gamepad1.a) {
