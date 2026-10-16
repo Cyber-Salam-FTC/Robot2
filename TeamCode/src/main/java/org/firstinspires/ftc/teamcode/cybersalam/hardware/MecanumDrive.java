@@ -51,8 +51,8 @@ public class MecanumDrive {
     public void drive(double forward, double strafe, double rotate) {
         double leftFrontPower = forward + strafe + rotate;
         double leftRearPower = forward - strafe + rotate;
-        double rightFrontPower = forward - strafe - rotate;
-        double rightRearPower = forward + strafe - rotate;
+        double rightFrontPower = forward + strafe - rotate;
+        double rightRearPower = forward - strafe - rotate;
 
         double maxPower = 1.0;
         double maxSpeed = 1.0;
