@@ -17,6 +17,7 @@ public class servoTest extends OpMode {
         servo2 = hardwareMap.get(CRServo.class, "servo");
 
         savedPower1 = 0.0;
+        savedPower2 = 0.0;
         servo1.setPower(0.0);
         servo2.setPower(0.0);
 
