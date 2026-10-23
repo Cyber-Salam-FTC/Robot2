@@ -8,14 +8,16 @@ import com.qualcomm.robotcore.hardware.CRServo;
 public class servoTest extends OpMode {
 
     private CRServo servo1, servo2;
-    private double savedPower = 0.0;
+    private double savedPower1 = 0.0;
+    private double savedPower2 = 0.0;
 
     @Override
     public void init() {
         servo1 = hardwareMap.get(CRServo.class, "servo");
         servo2 = hardwareMap.get(CRServo.class, "servo");
 
-        savedPower = 0.0;
+        savedPower1 = 0.0;
+        savedPower2 = 0.0;
         servo1.setPower(0.0);
         servo2.setPower(0.0);
 
@@ -28,17 +30,21 @@ public class servoTest extends OpMode {
     @Override
     public void loop() {
         if (gamepad1.a) {
-            savedPower = 0.0;
+            savedPower1 = 0.0;
+            savedPower2 = 0.0;
         } else if (gamepad1.x) {
-            savedPower = 1.0;
+            savedPower1 = 1.0;
+            savedPower2 = 1.0;
         } else if (gamepad1.y) {
-            savedPower = -1.0;
+            savedPower1 = -1.0;
+            savedPower2 = -1.0;
         }
 
-        servo1.setPower(savedPower);
-        servo2.setPower(savedPower);
+        servo1.setPower(savedPower1);
+        servo2.setPower(savedPower2);
 
-        telemetry.addData("Commanded power", savedPower);
+        telemetry.addData("Commanded power", savedPower1);
+        telemetry.addData("Commanded power", savedPower2);
         telemetry.addData("Controls", "X: forward | Y: reverse | A: stop");
         telemetry.update();
     }
