@@ -45,7 +45,7 @@ public class servoTest extends OpMode {
 
     @Override
     public void stop() {
-        servo1.setPower(0);
-        servo2.setPower(0);
+        servo1.setPower(0.0);
+        servo2.setPower(0.0);
     }
 }
