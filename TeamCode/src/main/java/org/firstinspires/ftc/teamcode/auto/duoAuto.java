@@ -33,11 +33,10 @@ public class duoAuto extends OpMode {
     private final Pose startPose = p.of(56, 8, 90);
     private final Pose line1End = p.of(56, 24, 90);
     private final Pose line2End = p.of(20, 28, 180);
-    private final Pose line3End = p.of(5, 28, 180);
+    private final Pose line3End = p.of(3, 28, 180);
     private final Pose line4End = p.of(16, 28, 180);
-    private final Pose line5End = p.of(30, 120, 0);
-    private final Pose line6End = p.of(58, 120, -90);
-
+    private final Pose line5End = p.of(16, 110, 0);
+    private final Pose line6End = p.of(30, 125, -90);
     @Override
     public void init() {
         follower = Constants.createFollower(hardwareMap);
@@ -65,7 +64,6 @@ public class duoAuto extends OpMode {
 
         telemetry.addData("Status", "Initialized");
         telemetry.addData("Start Pose", startPose);
-        telemetry.addLine("Press PLAY to begin.");
     }
 
     @Override
