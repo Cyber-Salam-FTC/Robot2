@@ -13,8 +13,8 @@ public class servoTest extends OpMode {
 
     @Override
     public void init() {
-        servo1 = hardwareMap.get(CRServo.class, "servo1");
-        servo2 = hardwareMap.get(CRServo.class, "servo2");
+        servo1 = hardwareMap.get(CRServo.class, "servo");
+        servo2 = hardwareMap.get(CRServo.class, "servo");
 
         savedPower1 = 0.0;
         savedPower2 = 0.0;
@@ -34,10 +34,10 @@ public class servoTest extends OpMode {
             savedPower2 = 0.0;
         } else if (gamepad1.x) {
             savedPower1 = 1.0;
-            savedPower2 = -1.0;
+            savedPower2 = 1.0;
         } else if (gamepad1.y) {
             savedPower1 = -1.0;
-            savedPower2 = 1.0;
+            savedPower2 = -1.0;
         }
 
         servo1.setPower(savedPower1);
