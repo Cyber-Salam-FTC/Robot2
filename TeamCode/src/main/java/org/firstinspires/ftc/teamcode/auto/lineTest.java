@@ -12,15 +12,15 @@ import org.firstinspires.ftc.teamcode.pedropathing.Constants;
 
 import static com.pedropathing.api.Paths.line;
 
-@Autonomous(name = "Forward Test")
+@Autonomous(name = "Forward Run")
 public class lineTest extends OpMode {
 
     private Follower follower;
     private Path forwardPath;
 
     private final PoseFactory p = PoseFactory.degrees();
-    private final Pose startPose = p.of(0, 0, 0);
-    private final Pose endPose = p.of(24, 0, 0);
+    private final Pose startPose = p.of(0, 0, 90);
+    private final Pose endPose = p.of(0, 10, 90);
 
     private final ElapsedTime timer = new ElapsedTime();
     private String status = "Initialized";
