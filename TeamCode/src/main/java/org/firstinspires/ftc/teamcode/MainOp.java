@@ -17,13 +17,13 @@ public class MainOp extends LinearOpMode {
     private DcMotor intakeMotor;
     private DcMotorEx shooterMotor;
     private CRServo intakeServo1, intakeServo2;
-    private CRServo transferServo;
+    private DcMotor transferMotor;
 
     private static final double TRANSFER_STEP = 90.0 / 180.0;
 
     private double intakePower = 0;
     private double shooterPower = 0;
-    private double transferPosition = 0.5;
+    private double transferPower = 0;
 
     private boolean previousDpadRight = false;
     private boolean previousDpadLeft = false;
@@ -41,7 +41,7 @@ public class MainOp extends LinearOpMode {
         intakeServo1.setDirection(DcMotorSimple.Direction.FORWARD);
         intakeServo2.setDirection(DcMotorSimple.Direction.FORWARD);
 
-        transferServo.setDirection(DcMotorSimple.Direction.REVERSE);
+        transferMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
         drive.init(hardwareMap,true);
 
@@ -68,7 +68,7 @@ public class MainOp extends LinearOpMode {
 
                 telemetry.addData("Intake power", intakePower);
                 telemetry.addData("Shooter power", shooterPower);
-                telemetry.addData("Transfer position", transferPosition);
+                telemetry.addData("Transfer Power", transferPower);
                 telemetry.addData("Shooter Power", shooterMotor.getPower());
                 telemetry.update();
             }
@@ -82,13 +82,14 @@ public class MainOp extends LinearOpMode {
                 DcMotor.class, "intakeMotor");
         shooterMotor = hardwareMap.get(
                 DcMotorEx.class, "shooterMotor");
+        transferMotor = hardwareMap.get(
+                DcMotor.class, "transferMotor");
 
         intakeServo1 = hardwareMap.get(
                 CRServo.class, "intakeServo1");
         intakeServo2 = hardwareMap.get(
                 CRServo.class, "intakeServo2");
-        transferServo = hardwareMap.get(
-                CRServo.class, "transferServo");
+
 
         intakeMotor.setDirection(DcMotorSimple.Direction.FORWARD);
         shooterMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -128,9 +129,9 @@ public class MainOp extends LinearOpMode {
                 gamepad2.dpad_left && !previousDpadLeft;
 
         if (gamepad2.dpad_right) {
-            transferServo.setPower(0.6);
+            transferMotor.setPower(0.6);
         } else {
-            transferServo.setPower(0);
+            transferMotor.setPower(0);
         }
 
         previousDpadRight = gamepad2.dpad_right;
